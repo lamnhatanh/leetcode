@@ -1,7 +1,7 @@
 package leetcode;
 
 import java.util.*;
-import java.util.Map.Entry;
+//import java.util.Map.Entry;
 
 public class MajorityElement {
 	
@@ -38,23 +38,36 @@ public class MajorityElement {
 			}
 		}
 		
-		// iterate each entry of hashmap
-	    for(Entry<Integer, Integer> entry : countNum.entrySet()) {
-	    	// check which one have counter the most
-	    	// and set the max counter to it
-	    	if (maxCounter < entry.getValue()) {
-	    		maxCounter = entry.getValue();
-	    	}
-	    }
-	    
-	 // iterate each entry of hashmap
-	    for(Entry<Integer, Integer> entry : countNum.entrySet()) {
-	    	// which one has the appear the most
-	    	// then show the key of that value out
-	    	if (entry.getValue().equals(maxCounter)) {
-	    		return entry.getKey();
-	    	}
-	    }
+		
+		for (int i : nums) {
+			if (maxCounter < countNum.get(i)) {
+				maxCounter = countNum.get(i);
+			}
+		}
+		
+		for (int i : nums) {
+			if (countNum.get(i) == maxCounter) {
+				return i;
+			}
+		}
+		
+		// iterate each entry of hash map
+//	    for (Entry<Integer, Integer> entry : countNum.entrySet()) {
+//	    	// check which one have counter the most
+//	    	// and set the max counter to it
+////	    	if (maxCounter < entry.getValue()) {
+////	    		maxCounter = entry.getValue();
+////	    	}
+//	    }
+//	    
+	 // iterate each entry of hash map
+//	    for (Entry<Integer, Integer> entry : countNum.entrySet()) {
+//	    	// which one has the appear the most
+//	    	// then show the key of that value out
+//	    	if (entry.getValue().equals(maxCounter)) {
+//	    		return entry.getKey();
+//	    	}
+//	    }
 		
 		return 0;
 	}
@@ -64,6 +77,6 @@ public class MajorityElement {
 		int[] nums = {2,2,7,7,7,7,7,1,1,1,2,7,7,7,2,1,1,1};
 		System.out.println("Input: " + Arrays.toString(nums));
 		System.out.println("Output: " + MajorityElement.majorityElement(nums));
-		}
+	}
 
 }
