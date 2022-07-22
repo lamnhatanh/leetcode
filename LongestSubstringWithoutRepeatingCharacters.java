@@ -2,6 +2,7 @@ package leetcode;
 import java.util.*;
 public class LongestSubstringWithoutRepeatingCharacters {
 	public static int lengthOfLongestSubstring(String s) {
+		//Set<Character> hs = new HashSet<>();
 		Set<Character> hs = new HashSet<>();
 		int left_pointer = 0;
 		int right_pointer = 0;
